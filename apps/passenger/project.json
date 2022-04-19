@@ -6,9 +6,7 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/passenger",
         "index": "apps/passenger/src/index.html",
@@ -90,17 +88,12 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/apps/passenger"
-      ],
+      "outputs": ["coverage/apps/passenger"],
       "options": {
         "jestConfig": "apps/passenger/jest.config.js",
         "passWithNoTests": true
       }
     }
   },
-  "tags": [
-    "domain:passenger",
-    "type:app"
-  ]
+  "tags": ["domain:passenger", "type:app"]
 }

@@ -6,9 +6,7 @@
   "targets": {
     "build": {
       "executor": "@nrwl/angular:ng-packagr-lite",
-      "outputs": [
-        "dist/libs/dashboard-lib"
-      ],
+      "outputs": ["dist/libs/dashboard-lib"],
       "options": {
         "project": "libs/dashboard-lib/ng-package.json"
       },
@@ -24,9 +22,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/libs/dashboard-lib"
-      ],
+      "outputs": ["coverage/libs/dashboard-lib"],
       "options": {
         "jestConfig": "libs/dashboard-lib/jest.config.js",
         "passWithNoTests": true
@@ -42,8 +38,5 @@
       }
     }
   },
-  "tags": [
-    "domain:dashboard",
-    "type:domain-logic"
-  ]
+  "tags": ["domain:dashboard", "type:domain-logic"]
 }

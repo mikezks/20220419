@@ -6,9 +6,7 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/dashboard",
         "index": "apps/dashboard/src/index.html",
@@ -19,9 +17,7 @@
           "apps/dashboard/src/favicon.ico",
           "apps/dashboard/src/assets"
         ],
-        "styles": [
-          "apps/dashboard/src/styles.css"
-        ],
+        "styles": ["apps/dashboard/src/styles.css"],
         "scripts": []
       },
       "configurations": {
@@ -86,17 +82,12 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/apps/dashboard"
-      ],
+      "outputs": ["coverage/apps/dashboard"],
       "options": {
         "jestConfig": "apps/dashboard/jest.config.js",
         "passWithNoTests": true
       }
     }
   },
-  "tags": [
-    "domain:dashboard",
-    "type:app"
-  ]
+  "tags": ["domain:dashboard", "type:app"]
 }

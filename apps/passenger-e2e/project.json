@@ -17,20 +17,12 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/passenger-e2e/**/*.{js,ts}"
-        ]
+        "lintFilePatterns": ["apps/passenger-e2e/**/*.{js,ts}"]
       }
     }
   },
-  "tags": [
-    "e2e"
-  ],
-  "implicitDependencies": [
-    "passenger"
-  ]
+  "tags": ["e2e"],
+  "implicitDependencies": ["passenger"]
 }
