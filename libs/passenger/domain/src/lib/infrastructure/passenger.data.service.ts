@@ -9,6 +9,7 @@ export class PassengerDataService {
   constructor(private http: HttpClient) {
   }
 
+  //  Trainer was here, again! :)
   load(name: string, firstname: string): Observable<Passenger[]> {
     const url = 'http://demo.angulararchitects.io/api/passenger';
 

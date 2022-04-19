@@ -1,7 +1,7 @@
 {
   "npmScope": "flight-workspace",
   "affected": {
-    "defaultBase": "main"
+    "defaultBase": "live"
   },
   "cli": {
     "defaultCollection": "@nrwl/angular",
