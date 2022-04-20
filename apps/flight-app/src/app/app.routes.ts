@@ -1,6 +1,7 @@
 import { ExtraOptions, Routes } from '@angular/router';
 import { BasketComponent } from './basket/basket.component';
 import { FlightSearchComponent } from './flight-booking/flight-search/flight-search.component';
+import { FlightTypeaheadComponent } from './flight-booking/flight-typeahead/flight-typeahead.component';
 import { HomeComponent } from './home/home.component';
 
 export const APP_ROUTES: Routes = [
@@ -16,6 +17,10 @@ export const APP_ROUTES: Routes = [
   {
     path: 'flight-booking/flight-search',
     component: FlightSearchComponent
+  },
+  {
+    path: 'flight-booking/flight-typeahead',
+    component: FlightTypeaheadComponent
   },
   {
     path: 'basket',

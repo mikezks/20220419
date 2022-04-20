@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="header">
+    <h1 class="title">Flight Typeahead</h1>
+  </div>
+  <div class="content">
+    <ng-container *ngIf="{
+      timer: timer$ | async
+    } as state">
+      <p>Timer 1: {{ state.timer }}</p>
+      <p>Timer 2: {{ state.timer }}</p>
+    </ng-container>
+  </div>
+</div>
