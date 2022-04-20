@@ -2,7 +2,7 @@
 /* eslint-disable @angular-eslint/no-empty-lifecycle-method */
 import {Component, OnInit} from '@angular/core';
 import {Flight, FlightService} from '@flight-workspace/flight-lib';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as fromFlightBooking from '../+state';
 
@@ -16,7 +16,8 @@ export class FlightSearchComponent implements OnInit {
   from = 'Hamburg'; // in Germany
   to = 'Graz'; // in Austria
   urgent = false;
-  flights$: Observable<Flight[]> = this.store.select(state => state.flightBooking.flights);
+  flights$: Observable<Flight[]> = this.store.select(fromFlightBooking.selectFlights);
+  // flights$: Observable<Flight[]> = this.store.select(state => state.flightBooking.flights);
 
   // "shopping basket" with selected flights
   basket: { [id: number]: boolean } = {
