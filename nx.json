@@ -23,7 +23,17 @@
           "lint",
           "test",
           "e2e"
-        ]
+        ],
+        "--cacheDirectory": "c:\\temp\\cache"
+      }
+    }
+  },
+  "--tasksRunnerOptions": {
+    "default": {
+      "runner": "./tools/task-runners/custom-task-runner",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "remoteDirectory": "c:\\temp\\remote-cache"
       }
     }
   },
