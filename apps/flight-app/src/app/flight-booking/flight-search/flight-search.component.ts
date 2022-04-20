@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import * as fromFlightBooking from '../+state';
 
 @Component({
+  // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'flight-search',
   templateUrl: './flight-search.component.html',
   styleUrls: ['./flight-search.component.css']
@@ -45,8 +46,20 @@ export class FlightSearchComponent implements OnInit {
       );
   }
 
-  delay(): void {
-    this.flightService.delay();
+  delay(flight: Flight): void {
+    this.store.dispatch(
+      fromFlightBooking.flightUpdate({
+        flight: {
+          ...flight,
+          date: addMinutesToDate(flight.date, 15).toISOString(),
+          delayed: true
+        }
+      })
+    );
   }
-
 }
+
+export const addMinutesToDate = (date: Date | string, minutes: number): Date => {
+  const dateObj = date instanceof Date ? date : new Date(date);
+  return new Date(dateObj.getTime() + minutes * 60 * 1_000);
+};
