@@ -2,7 +2,7 @@ import { HttpParams, HttpHeaders, HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Flight } from '@flight-workspace/flight-lib';
-import { debounceTime, distinctUntilChanged, EMPTY, filter, map, Observable, share, Subscription, switchMap, tap, timer } from 'rxjs';
+import { catchError, debounceTime, distinctUntilChanged, EMPTY, filter, map, Observable, of, share, Subscription, switchMap, tap, timer } from 'rxjs';
 
 @Component({
   selector: 'flight-workspace-flight-typeahead',
@@ -48,7 +48,9 @@ export class FlightTypeaheadComponent implements OnInit, OnDestroy {
        * Stream 2: HTTP backend API call -> Array of Flights
        * - Data Provider
        */
-      switchMap(city => this.load(city)),
+      switchMap(city => this.load(city).pipe(
+        catchError(() => of([]))
+      )),
       // Side-effect: Loading state
       tap(() => this.loading = false)
     );
