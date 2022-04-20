@@ -27,6 +27,7 @@
     "@ngrx/component-store": "^13.1.0",
     "@ngrx/effects": "^13.1.0",
     "@ngrx/entity": "^13.1.0",
+    "@ngrx/router-store": "^13.1.0",
     "@ngrx/store": "^13.1.0",
     "@nrwl/angular": "~13.9.0",
     "@swimlane/ngx-charts": "^20.1.0",
