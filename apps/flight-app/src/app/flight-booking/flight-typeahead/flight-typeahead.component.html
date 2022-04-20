@@ -3,11 +3,45 @@
     <h1 class="title">Flight Typeahead</h1>
   </div>
   <div class="content">
-    <ng-container *ngIf="{
+    <div class="form-group">
+      <label>City:</label>
+      <input [formControl]="control" class="form-control">
+    </div>
+
+    <div *ngIf="loading">Loading ...</div>
+
+    <!-- <ng-container *ngIf="{
       timer: timer$ | async
     } as state">
       <p>Timer 1: {{ state.timer }}</p>
       <p>Timer 2: {{ state.timer }}</p>
-    </ng-container>
+    </ng-container> -->
   </div>
 </div>
+
+<div class="card">
+
+  <table class="table table-condensed" *ngIf="flights$ | async as flights">
+      <thead>
+          <tr>
+              <th>Id</th>
+              <th>From</th>
+              <th>To</th>
+              <th>Date</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr
+              *ngFor="let f of flights">
+              <td><span class="badge badge-pill badge-info">
+                  {{ f.id }}
+              </span></td>
+              <td>{{ f.from }}</td>
+              <td>{{ f.to }}</td>
+              <td>{{ f.date | date:'dd.MM.yyyy HH:mm'  }}</td>
+          </tr>
+      <tbody>
+  </table>
+
+</div>
+
