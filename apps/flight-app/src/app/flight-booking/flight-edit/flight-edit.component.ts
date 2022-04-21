@@ -21,8 +21,9 @@ export class FlightEditComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
-      this.id = params?.get('id') ? +(params?.get('id') as string) : 0;
-      this.showDetails = params?.get('showDetails') ? (params?.get('showDetails') as string) === 'true' : false;
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      this.id = +params.get('id')!;
+      this.showDetails = params.get('showDetails') === 'true';
     });
   }
 
