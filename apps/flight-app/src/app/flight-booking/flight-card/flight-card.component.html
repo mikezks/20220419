@@ -19,7 +19,8 @@
       </button>
       <a
         class="btn btn-default"
-        [routerLink]="['../flight-edit', item.id, { showDetails: true }]">
+        [routerLink]="['../flight-edit', item.id, { showDetails: true }]"
+        [state]="{ config: 'my-prod-state' }">
         Edit
       </a>
     </p>

@@ -30,7 +30,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     FlightLibModule.forRoot(),
     SharedModule.forRoot(),
     RouterModule.forRoot(APP_ROUTES, {
-      preloadingStrategy: PreloadAllModules
+      // preloadingStrategy: PreloadAllModules
     }),
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([]),

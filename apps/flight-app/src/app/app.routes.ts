@@ -21,6 +21,26 @@ export const APP_ROUTES: Routes = [
     }
   },
   {
+    path: 'passenger',
+    children: [
+      {
+        path: '',
+        redirectTo: 'search',
+        pathMatch: 'full'
+      },
+      {
+        path: 'search',
+        loadChildren: () => import('@flight-workspace/passenger/feature-search')
+          .then(esm => esm.PassengerFeatureSearchModule)
+      },
+      {
+        path: 'edit/:id',
+        loadChildren: () => import('@flight-workspace/passenger/feature-edit')
+          .then(esm => esm.PassengerFeatureEditModule)
+      }
+    ]
+  },
+  {
     path: 'basket',
     component: BasketComponent,
     outlet: 'aux'

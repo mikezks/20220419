@@ -14,7 +14,11 @@
             "depConstraints": [
               {
                 "sourceTag": "domain:flights",
-                "onlyDependOnLibsWithTags": ["domain:flights", "domain:shared"]
+                "onlyDependOnLibsWithTags": [
+                  "domain:flights",
+                  "domain:passenger",
+                  "domain:shared"
+                ]
               },
               {
                 "sourceTag": "domain:dashboard",
