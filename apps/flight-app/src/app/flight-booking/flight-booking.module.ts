@@ -13,6 +13,7 @@ import { StoreModule } from '@ngrx/store';
 import * as fromFlightBooking from './+state/flight-booking.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { FlightBookingEffects } from './+state/flight-booking.effects';
+import { FlightBookingRoutingModule } from './flight-booking-routing.module';
 
 @NgModule({
   imports: [
@@ -20,7 +21,7 @@ import { FlightBookingEffects } from './+state/flight-booking.effects';
     FormsModule,
     ReactiveFormsModule,
     SharedModule.forChild(),
-    RouterModule,
+    FlightBookingRoutingModule,
     StoreModule.forFeature(fromFlightBooking.flightBookingFeatureKey, fromFlightBooking.reducer),
     EffectsModule.forFeature([FlightBookingEffects])
   ],
