@@ -6,6 +6,7 @@ import { PreloadAllModules, RouterModule } from '@angular/router';
 import { FlightLibModule } from '@flight-workspace/flight-lib';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
+import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { metaReducers, reducers } from './+state';
@@ -33,6 +34,10 @@ import { SidebarComponent } from './sidebar/sidebar.component';
       // preloadingStrategy: PreloadAllModules
     }),
     StoreModule.forRoot(reducers, { metaReducers }),
+    StoreRouterConnectingModule.forRoot({
+      stateKey: 'router',
+      routerState: RouterState.Minimal
+    }),
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
   ],
