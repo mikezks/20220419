@@ -1,9 +1,9 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { FlightLibModule } from '@flight-workspace/flight-lib';
+import { DefaultFlightService, DummyFlightService, FlightLibModule, FlightService } from '@flight-workspace/flight-lib';
 import { EffectsModule } from '@ngrx/effects';
 import { RouterState, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
@@ -48,7 +48,20 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     HomeComponent,
     BasketComponent
   ],
-  /* providers: [FlightService], */
+  providers: [
+    {
+      provide: FlightService,
+      useFactory: (http: HttpClient) => {
+        if (environment.flightService === 'default') {
+          return new DefaultFlightService(http);
+        } else {
+          return new DummyFlightService();
+        }
+      },
+      deps: [HttpClient],
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
