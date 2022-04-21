@@ -13,6 +13,14 @@ export const APP_ROUTES: Routes = [
     component: HomeComponent
   },
   {
+    path: 'flight-booking',
+    loadChildren: () => import('./flight-booking/flight-booking.module')
+      .then(esm => esm.FlightBookingModule),
+    data: {
+      preload: true
+    }
+  },
+  {
     path: 'basket',
     component: BasketComponent,
     outlet: 'aux'

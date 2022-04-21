@@ -8,7 +8,7 @@ import { PassengerSearchComponent } from './passenger-search/passenger-search.co
 
 const routes: Routes = [
   {
-    path: 'flight-booking',
+    path: '',
     component: FlightBookingComponent,
     children: [
       {
